@@ -6,4 +6,5 @@ if typing.TYPE_CHECKING:
 
 def setup_routes(app: "Application"):
     from app.crm.views import AddUserView
+
     app.router.add_view('/add_user', AddUserView)

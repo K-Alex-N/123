@@ -8,10 +8,13 @@ from app.store import setup_accessor, CrmAccessor
 from app.web.routes import setup_routes
 
 
+# class Application(AiohttpApplication):
+#     database: dict = {}
+#     crm_accessor: Optional[CrmAccessor] = None
 class Application(AiohttpApplication):
+    # config: Optional[Config] = None
     database: dict = {}
     crm_accessor: Optional[CrmAccessor] = None
-
 
 
 class Request(AiohttpRequest):

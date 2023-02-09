@@ -7,6 +7,24 @@ if typing.TYPE_CHECKING:
     from app.web.app import Application
 
 
+# class CrmAccessor:
+#     def __init__(self):
+#         self.app: Optional["Application"] = None
+#
+#     async def connect(self, app: "Application"):
+#         self.app = app
+#         try:
+#             self.app.database["users"]
+#         except KeyError:
+#             self.app.database["users"] = []
+#         print("connect to DB")
+#
+#     async def disconnect(self, _: "Application"):
+#         self.app = None
+#         print("disconnect from DB")
+#
+#     def add_user(self, user: User):
+#         self.app.database["users"].append(user)
 class CrmAccessor:
     def __init__(self):
         self.app: Optional["Application"] = None
@@ -17,11 +35,11 @@ class CrmAccessor:
             self.app.database["users"]
         except KeyError:
             self.app.database["users"] = []
-        print("connect to DB")
+        print("connect to database")
 
     async def disconnect(self, _: "Application"):
         self.app = None
-        print("disconnect from DB")
+        print("disconnect from database")
 
-    def add_user(self, user: User):
+    async def add_user(self, user: User):
         self.app.database["users"].append(user)
