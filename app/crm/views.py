@@ -19,11 +19,6 @@ def json_response(data: Any = None, status: str = 'ok') -> Response:
 class AddUserView(View):
     async def post(self):
         data = await self.request.json()
-        # # data = self.request["data"]
-        # user = User(email=data['email'], _id=uuid.uuid4())
-        # await self.request.app.crm_accessor.add_user(user)
-        # return json_response(data={'status': 'ok'})
-        # data = self.request["data"]
         user = User(email=data["email"], id_=uuid.uuid4())
         await self.request.app.crm_accessor.add_user(user)
         return json_response()
