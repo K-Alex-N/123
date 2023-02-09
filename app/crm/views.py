@@ -24,6 +24,6 @@ class AddUserView(View):
         # await self.request.app.crm_accessor.add_user(user)
         # return json_response(data={'status': 'ok'})
         # data = self.request["data"]
-        user = User(email=data["email"], _id=uuid.uuid4())
+        user = User(email=data["email"], id_=uuid.uuid4())
         await self.request.app.crm_accessor.add_user(user)
         return json_response()

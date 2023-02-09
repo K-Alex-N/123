@@ -31,15 +31,19 @@ class CrmAccessor:
 
     async def connect(self, app: "Application"):
         self.app = app
+        print('    self.app (из stope/crm/accessor.connect) =', self.app)
+        print('    !!!!!!! type(app) =', type(app))
         try:
             self.app.database["users"]
         except KeyError:
             self.app.database["users"] = []
-        print("connect to database")
+        print('    self.app.database["users"] =', self.app.database["users"])
+        print("    connect to database")
 
     async def disconnect(self, _: "Application"):
         self.app = None
         print("disconnect from database")
 
     async def add_user(self, user: User):
+        print('asdasdasd')
         self.app.database["users"].append(user)

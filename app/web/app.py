@@ -3,7 +3,8 @@ from typing import Optional
 from aiohttp.web import Application as AiohttpApplication, run_app as aiohttp_run_app, \
     View as AiohttpView, Request as AiohttpRequest
 
-from app.store import setup_accessor, CrmAccessor
+from app.store import setup_accessors
+from app.store.crm.accessor import CrmAccessor
 
 from app.web.routes import setup_routes
 
@@ -34,5 +35,9 @@ app = Application()
 
 def run_app():
     setup_routes(app)
-    setup_accessor(app)
+    print('setup_routes')
+    setup_accessors(app)
+    print('setup_accessors')
+    # print(app.crm_accessor.)
     aiohttp_run_app(app)
+    print('aiohttp_run_app')
