@@ -1,1 +1,2 @@
 aiohttp==3.8.3
+aiohttp-apispec==2.2.3
